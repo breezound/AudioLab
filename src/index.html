@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Round Trip Latency (RTL) Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="rtl-card">
+        <header class="rtl-header">
+            <h1>AUDIO RTL SIMULATOR</h1>
+            <p>Interactive Round Trip Latency Analysis for Sound Engineers</p>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <section class="controls-panel">
+                <div class="input-field">
+                    <label for="sampleRate">Sample Rate (อัตราสุ่มสัญญาณ)</label>
+                    <select id="sampleRate">
+                        <option value="48000">48 kHz</option>
+                        <option value="96000" selected>96 kHz</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label for="bufferSize">Buffer Size (ขนาดบัฟเฟอร์)</label>
+                    <select id="bufferSize">
+                        <option value="32">32 Samples</option>
+                        <option value="64">64 Samples</option>
+                        <option value="128" selected>128 Samples</option>
+                        <option value="256">256 Samples</option>
+                        <option value="512">512 Samples</option>
+                        <option value="1024">1024 Samples</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <div class="slider-header">
+                        <label for="networkHops">Network Switches (Hops)</label>
+                        <span id="hopsDisplay" class="badge">2 Hops</span>
+                    </div>
+                    <input type="range" id="networkHops" min="0" max="5" value="2" step="1">
+                </div>
+            </section>
+
+            <section class="display-panel">
+                <div class="total-rtl-wrapper">
+                    <span class="panel-title">TOTAL ROUND TRIP LATENCY</span>
+                    <div class="counter-box">
+                        <span id="totalRtlValue">4.17</span>
+                        <span class="ms-unit">ms</span>
+                    </div>
+                    <p class="status-text" id="latencyStatus">สถานะ: ความหน่วงต่ำเป็นพิเศษ (Ultra-low Latency)</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="chart-panel">
+            <h3>Latency Composition Breakdown</h3>
+            
+            <div class="stacked-bar-container">
+                <div id="barBuffer" class="bar-segment buffer-bg" style="width: 40%"></div>
+                <div id="barNetwork" class="bar-segment network-bg" style="width: 30%"></div>
+                <div id="barAdda" class="bar-segment adda-bg" style="width: 30%"></div>
+            </div>
+
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="indicator buffer-bg"></div>
+                    <div class="legend-info">
+                        <span class="label">Buffer Latency</span>
+                        <span id="txtBuffer" class="value-output">2.67 ms</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="indicator network-bg"></div>
+                    <div class="legend-info">
+                        <span class="label">Network Latency</span>
+                        <span id="txtNetwork" class="value-output">0.50 ms</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="indicator adda-bg"></div>
+                    <div class="legend-info">
+                        <span class="label">AD/DA Conversion</span>
+                        <span id="txtAdda" class="value-output">1.00 ms</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
