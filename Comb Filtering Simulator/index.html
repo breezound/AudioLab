@@ -1,0 +1,30 @@
+<div class="bz-simulator-wrapper">
+  <div class="bz-header">
+    <h2>COMB FILTERING <span>SIMULATOR</span></h2>
+    <div class="bz-status-display">
+      <div class="status-item">1st Null: <span id="null-readout" class="accent-text">-- Hz</span></div>
+    </div>
+  </div>
+
+  <div class="bz-oscilloscope-container">
+    <canvas id="rta-canvas"></canvas>
+    <div class="scope-legend">
+      <span class="legend-item"><span class="color-box sig-sum"></span> Acoustic Sum (Frequency Response)</span>
+    </div>
+  </div>
+
+  <div class="bz-controls">
+    <div class="control-group">
+      <div class="control-header">
+        <label for="delay-slider">Time Offset / Distance</label>
+        <span class="val-display"><span id="delay-val">1.0</span> ms (<span id="dist-val">34.3</span> cm)</span>
+      </div>
+      <input type="range" id="delay-slider" min="0" max="10" step="0.1" value="1.0">
+      <p class="control-note">ปรับระยะเวลาหรือระยะห่างของลำโพง 2 ใบ เพื่อสังเกตการณ์เกิดรอยหวี (Comb)</p>
+    </div>
+  </div>
+  
+  <div class="bz-cta-container">
+    <button class="bz-cta-btn" onclick="window.open('#', '_blank')">BreezoundLaB</button>
+  </div>
+</div>
