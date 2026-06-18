@@ -182,3 +182,30 @@ input[type=range]::-webkit-slider-thumb {
   .bz-header { flex-direction: column; align-items: flex-start; gap: 15px; }
   .control-header { flex-direction: column; gap: 5px; }
 }
+/* จัดตำแหน่งกล่องให้อยู่ตรงกลางและเว้นระยะห่างจากด้านบน */
+.bz-action {
+    margin-top: 25px;
+    padding-bottom: 10px;
+    text-align: center; 
+}
+
+/* เปลี่ยนลิงก์ธรรมดาให้กลายเป็นปุ่มที่เข้ากับธีม */
+.cta-breezound {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #ff9800; /* ใช้สีส้มให้ล้อกับธีมของเว็บ */
+    color: #1a1a1a; /* ตัวหนังสือสีเข้มให้อ่านง่าย */
+    text-decoration: none; /* เอาเส้นใต้ออก */
+    border-radius: 8px; /* ทำมุมให้โค้งมน */
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid #ff9800;
+}
+
+/* เอฟเฟกต์เวลานำเมาส์ไปชี้ (Hover) */
+.cta-breezound:hover {
+    background-color: transparent;
+    color: #ff9800;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
+}
