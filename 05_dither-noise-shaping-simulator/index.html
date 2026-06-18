@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>05_Dither &amp; Noise Shaping Simulator</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="bz-simulator">
+  <div class="bz-header">
+    <h2>Breezound Dither & Noise Shaping Simulator</h2>
+    <p class="bz-subtitle">DSP Visualization: 24-Bit Precision & Phase Stabilized</p>
+  </div>
+
+  <div class="bz-displays">
+    <div class="bz-screen-container">
+      <div class="bz-screen-label">Waveform (Time Domain)</div>
+      <canvas id="waveCanvas"></canvas>
+    </div>
+    <div class="bz-screen-container">
+      <div class="bz-screen-label">FFT Spectrum Analyzer (Frequency Domain)</div>
+      <canvas id="fftCanvas"></canvas>
+    </div>
+  </div>
+
+  <div class="bz-controls">
+    <div class="bz-panel">
+      <div class="bz-control-group">
+        <label>Input Level (dB): <span id="levelVal">-12.0</span> dB</label>
+        <input type="range" id="levelCtrl" min="-60" max="0" step="0.1" value="-12">
+      </div>
+      <div class="bz-control-group">
+        <label>Bit Depth: <span id="bitVal">8</span>-Bit</label>
+        <input type="range" id="bitCtrl" min="2" max="24" step="1" value="8">
+      </div>
+    </div>
+    
+    <div class="bz-panel">
+      <div class="bz-control-group">
+        <label>Dithering (TPDF)</label>
+        <div class="bz-toggle-group">
+          <button class="bz-btn active" id="ditherOff">OFF</button>
+          <button class="bz-btn" id="ditherOn">ON</button>
+        </div>
+      </div>
+      <div class="bz-control-group">
+        <label>Noise Shaping (Error Feedback)</label>
+        <div class="bz-toggle-group">
+          <button class="bz-btn active" id="shapeOff">OFF</button>
+          <button class="bz-btn" id="shapeOn">ON</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bz-footer">
+    <a href="https://breezound.github.io/AudioLab/" class="cta-button" target="_blank">BreezoundLaB</a>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
