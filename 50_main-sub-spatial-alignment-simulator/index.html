@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>50_Main-Sub Spatial Alignment Simulator</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  https://https://breezound.github.io/AudioLab<div class="breezound-simulator">
+  <div class="header">
+    <h2>Main-Sub Spatial Alignment Simulator</h2>
+    <p>Predictive Modeling of Displaced Acoustic Sources & The Magnitude Fallacy</p>
+  </div>
+
+  <div class="sim-container">
+    <div class="controls-panel">
+      <h3>System Controls</h3>
+      
+      <div class="control-group">
+        <label>Listener Position (<span id="val-pos">15</span> m)</label>
+        <input type="range" id="ctrl-pos" min="1" max="40" step="0.5" value="15">
+      </div>
+      
+      <div class="control-group">
+        <label>Flown Main Height (<span id="val-height">8</span> m)</label>
+        <input type="range" id="ctrl-height" min="3" max="15" step="0.5" value="8">
+      </div>
+
+      <div class="control-group">
+        <label>Subwoofer Delay (<span id="val-delay">0</span> ms)</label>
+        <input type="range" id="ctrl-delay" min="-20" max="20" step="0.1" value="0">
+      </div>
+
+      <div class="control-group">
+        <label>Crossover Frequency (<span id="val-xover">80</span> Hz)</label>
+        <input type="range" id="ctrl-xover" min="40" max="120" step="1" value="80">
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="color-box main-color"></span> Main PA</div>
+        <div class="legend-item"><span class="color-box sub-color"></span> Ground Sub</div>
+        <div class="legend-item"><span class="color-box sum-color"></span> Summation</div>
+      </div>
+    </div>
+
+    <div class="visuals-panel">
+      <div class="canvas-wrapper space-view">
+        <div class="canvas-title">Physical Space (Time of Flight)</div>
+        <canvas id="canvas-space"></canvas>
+      </div>
+      
+      <div class="canvas-wrapper magnitude-view">
+        <div class="canvas-title">Magnitude Response (dB)</div>
+        <canvas id="canvas-magnitude"></canvas>
+      </div>
+
+      <div class="canvas-wrapper phase-view">
+        <div class="canvas-title">Phase Response (Degrees)</div>
+        <canvas id="canvas-phase"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-container">
+  <a href="https://breezound.github.io/AudioLab/" target="_blank" class="btn-cta" id="breezound-lab-link">BreezoundLaB ></a>
+</div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
