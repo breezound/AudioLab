@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>BREEZOUND CARDIOID SUB SIMULATOR</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="breezound-simulator">
+  <div class="bz-header">
+    <h2>BREEZOUND <span>CARDIOID SUB SIMULATOR</span></h2>
+  </div>
+
+  <div class="bz-layout">
+    <div class="bz-visualizer">
+      <div class="canvas-container">
+        <canvas id="polarCanvas" width="600" height="600"></canvas>
+      </div>
+      <div class="plot-labels">
+        <span class="label-top">AUDIENCE (FRONT)</span>
+        <span class="label-bottom">STAGE (REAR)</span>
+      </div>
+    </div>
+
+    <div class="bz-console">
+      <div class="bz-section">
+        <h3>GLOBAL SETTINGS</h3>
+        <div class="bz-presets">
+          <button id="btnEndfire" class="bz-btn active">ENDFIRE ARRAY</button>
+          <button id="btnGradient" class="bz-btn">GRADIENT STACK</button>
+        </div>
+        
+        <div class="bz-control-group">
+          <div class="bz-control-header">
+            <label>Frequency (Hz)</label>
+            <output id="outFreq">80</output>
+          </div>
+          <input type="range" id="slFreq" min="30" max="150" step="1" value="80">
+        </div>
+
+        <div class="bz-control-group">
+          <div class="bz-control-header">
+            <label>Subwoofer Spacing (m)</label>
+            <output id="outSpacing">1.0</output>
+          </div>
+          <input type="range" id="slSpacing" min="0.5" max="3.0" step="0.1" value="1.0">
+        </div>
+      </div>
+
+      <div class="bz-section">
+        <h3>ALIGNMENT CONTROLS</h3>
+        
+        <div class="bz-channel sub-a">
+          <h4>SUB A (DOWNSTAGE / FRONT)</h4>
+          <div class="bz-control-group">
+            <div class="bz-control-header">
+              <label>Delay (ms)</label>
+              <output id="outDelayA">2.91</output>
+            </div>
+            <input type="range" id="slDelayA" min="0" max="20" step="0.01" value="2.91">
+          </div>
+        </div>
+
+        <div class="bz-channel sub-b">
+          <h4>SUB B (UPSTAGE / REAR)</h4>
+          <div class="bz-control-group">
+            <div class="bz-control-header">
+              <label>Delay (ms)</label>
+              <output id="outDelayB">0.00</output>
+            </div>
+            <input type="range" id="slDelayB" min="0" max="20" step="0.01" value="0">
+          </div>
+          
+          <div class="bz-control-group">
+            <div class="bz-control-header">
+              <label>Gain (dB) <span>*Equal Magnitude</span></label>
+              <output id="outGainB">0.0</output>
+            </div>
+            <input type="range" id="slGainB" min="-18" max="0" step="0.5" value="0">
+          </div>
+
+          <div class="bz-toggle-group">
+            <label>Polarity (Phase)</label>
+            <label class="bz-switch">
+              <input type="checkbox" id="chkPolB">
+              <span class="bz-slider-switch"></span>
+            </label>
+            <span id="txtPolB" class="pol-label">NORMAL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bz-action">
+        <a href="#" class="cta-breezound">BreezoundLaB</a>
+      </div>
+    </div>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
