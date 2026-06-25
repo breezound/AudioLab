@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>SBIR</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="bz-simulator">
+  <div class="bz-header">
+    <div class="bz-title">SBIR <span>Advanced Acoustic Simulator</span></div>
+    <div class="bz-status" id="null-freq-display">Primary Null: -- Hz</div>
+  </div>
+
+  <div class="bz-canvas-container">
+    <div class="bz-panel">
+      <div class="bz-panel-title">Top-Down Placement (1D Ray)</div>
+      <canvas id="room-canvas"></canvas>
+    </div>
+    
+    <div class="bz-panel">
+      <div class="bz-panel-title">Frequency Response <span>(Dashed = Ideal Math, Solid = Real World)</span></div>
+      <canvas id="graph-canvas"></canvas>
+    </div>
+  </div>
+
+  <div class="bz-controls">
+    <div class="bz-control-grid">
+      <div class="bz-control-group">
+        <div class="bz-control-header">
+          <label>Speaker to Front Wall</label>
+          <span class="bz-value" id="dist-val">1.20 m</span>
+        </div>
+        <input type="range" id="dist-slider" min="0.1" max="3.0" step="0.01" value="1.2">
+      </div>
+
+      <div class="bz-control-group">
+        <div class="bz-control-header">
+          <label>Acoustic Treatment</label>
+          <span class="bz-value" id="treat-val">0%</span>
+        </div>
+        <input type="range" id="treat-slider" min="0" max="1.0" step="0.01" value="0">
+      </div>
+
+      <div class="bz-control-group">
+        <div class="bz-control-header">
+          <label>Speaker Low-Cut (e.g. SC207 = 44Hz)</label>
+          <span class="bz-value" id="cut-val">20 Hz</span>
+        </div>
+        <input type="range" id="cut-slider" min="20" max="80" step="1" value="20">
+      </div>
+    </div>
+
+    <div class="bz-toggle-group">
+      <div class="bz-toggle-text">
+        <strong>Enable Real-World Physics</strong>
+        <span>Applies 1/6 Octave Smoothing & Distance Energy Loss (Inverse Square Law)</span>
+      </div>
+      <label class="bz-switch">
+        <input type="checkbox" id="real-world-toggle">
+        <span class="bz-slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="bz-footer">
+    <a href="https://breezound.github.io/AudioLab/" class="bz-cta-btn" target="_blank"> BreezoundLaB</a>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
