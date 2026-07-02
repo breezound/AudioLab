@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>51_Mutual Coupling &amp; Low-Mid Lobing</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="breezound-simulator">
+  <header class="sim-header">
+    
+    <p>Low-Mid Mutual Coupling Simulator</p>
+    <h2>BREEZOUND <span>DSP</span></h2>
+  </header>
+
+  <main class="sim-layout">
+    <section class="panel controls-panel">
+      <div class="control-group">
+        <label for="freq">Frequency: <span id="freq-disp" class="lcd-text">250 Hz</span></label>
+        <input type="range" id="freq" min="100" max="400" step="1" value="250">
+      </div>
+      
+      <div class="control-group">
+        <label for="dist">Source Distance (Center-to-Center): <span id="dist-disp" class="lcd-text">0.50 m</span></label>
+        <input type="range" id="dist" min="0.1" max="2.0" step="0.01" value="0.5">
+      </div>
+
+      <div class="dsp-readouts">
+        <div class="readout-box">
+          <span class="label">Wavelength (&lambda;)</span>
+          <span id="wavelength" class="value">0.00 m</span>
+        </div>
+        <div class="readout-box">
+          <span class="label">Critical Dist (&lambda;/4)</span>
+          <span id="crit-dist" class="value">0.00 m</span>
+        </div>
+        <div class="readout-box status-box">
+          <span class="label">Coupling Status</span>
+          <span id="status" class="value highlight">CALCULATING...</span>
+        </div>
+        <div class="readout-box">
+          <span class="label">Estimated Gain</span>
+          <span id="gain" class="value">+0.0 dB</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel visualizer-panel">
+      <div class="canvas-container">
+        <canvas id="radiation-map" width="400" height="300"></canvas>
+        <div class="canvas-overlay">Radiation Map (Top View)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sim-footer">
+     <a href="https://breezound.github.io/AudioLab/" target="_blank" class="btn-cta" id="breezound-lab-link">BreezoundLaB </a>
+  </footer>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
