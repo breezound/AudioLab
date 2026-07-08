@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>System Damping Factor (DF)</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="breezound-simulator">
+  <div class="bz-header">
+    <h2>SYSTEM DAMPING FACTOR <span>SIMULATOR</span></h2>
+    <p>Analyze Back EMF Control & Subwoofer Transient Response</p>
+  </div>
+  
+  <div class="bz-grid">
+    <div class="bz-panel bz-controls">
+      <h3>ROUTING CONTROLS</h3>
+      
+      <div class="bz-control-group">
+        <label for="spk-imp">Speaker Impedance (Ω)</label>
+        <select id="spk-imp">
+          <option value="2">2 Ohms</option>
+          <option value="4">4 Ohms</option>
+          <option value="8" selected>8 Ohms</option>
+          <option value="16">16 Ohms</option>
+        </select>
+      </div>
+
+      <div class="bz-control-group">
+        <label for="amp-df">Amp Rated Damping Factor (@ 8Ω)</label>
+        <div class="bz-slider-wrap">
+          <input type="range" id="amp-df" min="100" max="5000" step="50" value="1000">
+          <span class="bz-value-display" id="amp-df-val">1000</span>
+        </div>
+      </div>
+
+      <div class="bz-control-group">
+        <label for="cab-len">Cable Length (Meters)</label>
+        <div class="bz-slider-wrap">
+          <input type="range" id="cab-len" min="1" max="50" step="1" value="15">
+          <span class="bz-value-display" id="cab-len-val">15 m</span>
+        </div>
+      </div>
+
+      <div class="bz-control-group">
+        <label for="cab-gauge">Wire Gauge / Area (sq.mm)</label>
+        <select id="cab-gauge">
+          <option value="1.5">1.5 sq.mm</option>
+          <option value="2.5">2.5 sq.mm</option>
+          <option value="4.0" selected>4.0 sq.mm (Pro Standard)</option>
+          <option value="6.0">6.0 sq.mm</option>
+          <option value="10.0">10.0 sq.mm</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bz-panel bz-output">
+      <h3>ANALYSIS & METRICS</h3>
+      
+      <div class="bz-metrics">
+        <div class="bz-metric-box">
+          <div class="bz-metric-label">CABLE RESISTANCE (R Cable)</div>
+          <div class="bz-metric-value" id="res-val">0.00 Ω</div>
+        </div>
+        <div class="bz-metric-box bz-highlight">
+          <div class="bz-metric-label">SYSTEM DAMPING FACTOR</div>
+          <div class="bz-metric-value bz-df-total" id="df-val">0.0</div>
+          <div class="bz-status-badge" id="df-status">STATUS</div>
+        </div>
+      </div>
+
+      <div class="bz-canvas-container">
+        <div class="bz-canvas-title">Transient Response (60Hz Back EMF Decay)</div>
+        <canvas id="transientCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bz-footer">
+    <a href="https://breezound.github.io/AudioLab/" class="bz-cta-btn" id="breezound-link" target="_blank" rel="noopener noreferrer">BreezoundLaB</a>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
