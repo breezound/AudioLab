@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
+/* 1. (ใส่เพิ่มถ้าต้องการให้พื้นหลังทั้งหน้าเว็บเป็นสีดำสนิท) */
+body {
+  background-color: #000000; 
+}
+
+/* 2. แก้ค่า background-color ตรงคลาสนี้ให้เป็น #000000 */
 .breezound-simulator {
-  background-color: #121212;
+  background-color: #000000; /* <--- แก้ตรงนี้จุดเดียวครับ */
   color: #e0e0e0;
   font-family: 'Inter', sans-serif;
   width: 100%;
@@ -13,6 +19,8 @@
   overflow: hidden;
   box-sizing: border-box;
 }
+
+/* ... โค้ด CSS ส่วนอื่นๆ ด้านล่าง ปล่อยไว้เหมือนเดิมได้เลย ... */
 
 .breezound-simulator * {
   box-sizing: border-box;
@@ -242,4 +250,5 @@ canvas {
   .bz-metrics {
     flex-direction: column;
   }
+  
 }
