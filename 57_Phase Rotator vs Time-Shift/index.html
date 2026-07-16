@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Phase Rotator vs Time-Shift</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="bz-simulator-container">
+  <div class="bz-header">
+    <h2>Acoustic Phase Cancellation Solver</h2>
+    <p>Compare Time-Shift vs All-Pass Filter methodologies.</p>
+  </div>
+
+  <div class="bz-visualizer">
+    <canvas id="bz-oscilloscope"></canvas>
+    <div class="bz-meter-container">
+      <div class="bz-meter-label">Summation Energy (RMS)</div>
+      <div class="bz-meter-bar-bg">
+        <div class="bz-meter-bar-fill" id="bz-vu-meter"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bz-controls">
+    <div class="bz-control-group bz-mode-switch">
+      <label>Processing Mode</label>
+      <select id="bz-mode-select">
+        <option value="time">Time-Shift (Timeline Dragging)</option>
+        <option value="apf" selected>All-Pass Filter (Phase Rotation)</option>
+      </select>
+    </div>
+
+    <div class="bz-control-panel" id="panel-time" style="display: none;">
+      <div class="bz-control-group">
+        <label>Time-Shift / Delay (<span id="val-delay">0.0</span> ms)</label>
+        <input type="range" id="ctrl-delay" min="-5.0" max="5.0" step="0.1" value="0.0">
+        <div class="bz-warning" id="warn-delay">Warning: Natural pre-delay and room dimension altered.</div>
+      </div>
+    </div>
+
+    <div class="bz-control-panel" id="panel-apf">
+      <div class="bz-control-group">
+        <label>Target Frequency (<span id="val-freq">150</span> Hz)</label>
+        <input type="range" id="ctrl-freq" min="50" max="500" step="1" value="150">
+      </div>
+      <div class="bz-control-group">
+        <label>Phase Rotation (<span id="val-phase">0</span> &deg;)</label>
+        <input type="range" id="ctrl-phase" min="-180" max="180" step="1" value="0">
+      </div>
+      <div class="bz-control-group">
+        <label>Resonance / Q-Factor (<span id="val-q">0.7</span>)</label>
+        <input type="range" id="ctrl-q" min="0.1" max="10.0" step="0.1" value="0.7">
+        <div class="bz-warning" id="warn-q" style="opacity: 0;">Danger: High Q causing Transient Smearing!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bz-footer">
+    <div class="bz-legend">
+      <span class="leg-ref"></span> Reference Mic
+      <span class="leg-tgt"></span> Target Mic
+      <span class="leg-sum"></span> Master Sum
+    </div>
+    <a href="https://breezound.github.io/AudioLab/" target="_blank" class="bz-btn-cta">BreezoundLaB</a>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
