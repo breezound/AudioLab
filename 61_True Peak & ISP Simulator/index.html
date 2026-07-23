@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>True Peak &amp; ISP Simulator</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="bz-simulator">
+  <div class="bz-header">
+    <div class="bz-title">True Peak & ISP Simulator</div>
+    <div class="bz-subtitle">Safety Ceiling & Oversampling Engine</div>
+  </div>
+
+  <div class="bz-display-area">
+    <canvas id="rtaCanvas" width="800" height="320"></canvas>
+    
+    <div class="bz-meter-bridge">
+      <div class="bz-meter-group">
+        <div class="bz-meter-label">Sample Peak (dBFS)</div>
+        <div class="bz-meter-bar"><div class="bz-fill" id="sampleMeter"></div></div>
+        <div class="bz-meter-readout" id="sampleReadout">-inf</div>
+      </div>
+      <div class="bz-meter-group">
+        <div class="bz-meter-label">True Peak (dBTP) <span id="clipWarn" class="bz-clip-warn">CLIPPING</span></div>
+        <div class="bz-meter-bar"><div class="bz-fill" id="trueMeter"></div></div>
+        <div class="bz-meter-readout" id="trueReadout">-inf</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bz-control-panel">
+    <div class="bz-knob-group">
+      <label>Input Gain (dB) <span id="lblGain">0.0</span></label>
+      <input type="range" id="inputGain" min="-6" max="6" step="0.1" value="1.5">
+    </div>
+    
+    <div class="bz-knob-group">
+      <label>Phase Shift (°) <span id="lblPhase">45</span></label>
+      <input type="range" id="phaseShift" min="0" max="45" step="1" value="45">
+    </div>
+    
+    <div class="bz-knob-group">
+      <label>Limiter Ceiling <span id="lblCeil">-1.0</span></label>
+      <select id="ceiling">
+        <option value="0.0">0.0 dB (No Headroom)</option>
+        <option value="-1.0" selected>-1.0 dB (Streaming)</option>
+        <option value="-2.0">-2.0 dB (Lossy Codec)</option>
+      </select>
+    </div>
+    
+    <div class="bz-knob-group">
+      <label>Oversampling</label>
+      <select id="oversampling">
+        <option value="1">1x (Off)</option>
+        <option value="4">4x</option>
+        <option value="8">8x</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bz-cta-container">
+    <a href="https://breezound.github.io/AudioLab/" class="bz-btn-primary" target="_blank">BreezoundLaB</a>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
